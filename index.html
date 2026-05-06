@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabriel Tályson – Currículo</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #0a0e1a;
+    --surface:  #111827;
+    --surface2: #1a2235;
+    --accent:   #00e5ff;
+    --accent2:  #7c3aed;
+    --accent3:  #f59e0b;
+    --text:     #e2e8f0;
+    --muted:    #64748b;
+    --sub:      #94a3b8;
+    --border:   rgba(0,229,255,0.14);
+    --glow:     0 0 18px rgba(0,229,255,0.22);
+    --glow2:    0 0 24px rgba(124,58,237,0.28);
+    --fs-xs:    clamp(10px, 2.5vw, 11px);
+    --fs-sm:    clamp(12px, 3vw,  13px);
+    --fs-base:  clamp(13px, 3.5vw, 15px);
+    --fs-h1:    clamp(26px, 8vw,  46px);
+    --sp-sm:    clamp(12px, 3vw, 20px);
+    --sp-md:    clamp(20px, 5vw, 36px);
+    --sp-lg:    clamp(32px, 7vw, 64px);
+    --px:       clamp(16px, 5vw, 40px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: var(--fs-base);
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
+    background-size: 36px 36px;
+    pointer-events: none; z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    top: -25%; left: -15%;
+    width: 70%; height: 70%;
+    background: radial-gradient(ellipse, rgba(124,58,237,0.1) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: var(--sp-lg) var(--px);
+    position: relative; z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  header {
+    margin-bottom: var(--sp-lg);
+    padding-bottom: var(--sp-md);
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp .7s ease both;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,229,255,0.07);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 5px 13px;
+    font-family: 'Space Mono', monospace;
+    font-size: var(--fs-xs);
+    color: var(--accent);
+    margin-bottom: 20px;
+    animation: fadeUp .5s .05s ease both;
+  }
+  .status-dot {
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: pulse 2s infinite;
+  }
+
+  .tag-line {
+    font-family: 'Space Mono', monospace;
+    font-size: var(--fs-xs);
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    animation: fadeUp .6s .1s ease both;
+  }
+  .tag-line::before { content: '▶ '; color: var(--accent2); }
+
+  h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: var(--fs-h1);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+    animation: fadeUp .7s .15s ease both;
+    word-break: break-word;
+  }
+  h1 .accent { color: var(--accent); }
+  h1 .dim    { color: var(--muted); font-weight: 400; }
+
+  .subtitle {
+    font-size: var(--fs-base);
+    color: var(--sub);
+    font-weight: 300;
+    max-width: 520px;
+    margin-bottom: var(--sp-md);
+    animation: fadeUp .7s .2s ease both;
+  }
+
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: fadeUp .7s .25s ease both;
+  }
+  @media (min-width: 600px) {
+    .contacts { flex-direction: row; flex-wrap: wrap; }
+    .contact-item { flex: 1 1 calc(33% - 8px); min-width: 190px; }
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: var(--fs-sm);
+    color: var(--sub);
+    text-decoration: none;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    transition: border-color .2s, color .2s, box-shadow .2s;
+    min-height: 44px;
+  }
+  .contact-item:hover, .contact-item:focus {
+    color: var(--accent);
+    border-color: rgba(0,229,255,.35);
+    box-shadow: var(--glow);
+    outline: none;
+  }
+  .contact-icon {
+    width: 30px; height: 30px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+    background: var(--surface2);
+    transition: border-color .2s;
+  }
+  .contact-item:hover .contact-icon { border-color: var(--accent); }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: var(--sp-lg);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .55s ease, transform .55s ease;
+  }
+  .section.visible { opacity: 1; transform: none; }
+
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: var(--sp-sm);
+  }
+  .section-number {
+    font-family: 'Space Mono', monospace;
+    font-size: var(--fs-xs); color: var(--accent2); opacity: .7; flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Space Mono', monospace;
+    font-size: var(--fs-xs); letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; white-space: nowrap;
+  }
+  .section-line {
+    flex: 1; height: 1px; min-width: 20px;
+    background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
+  }
+
+  /* ── OBJETIVO ── */
+  .objetivo-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent2);
+    border-radius: 12px;
+    padding: var(--sp-sm) clamp(16px,4vw,28px);
+    font-size: var(--fs-base);
+    color: var(--sub); font-weight: 300; line-height: 1.85;
+    position: relative; overflow: hidden;
+  }
+  .objetivo-box::before {
+    content: '"';
+    position: absolute; top: -12px; left: 14px;
+    font-size: 72px; color: var(--accent2); opacity: .12;
+    font-family: Georgia, serif; line-height: 1; pointer-events: none;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { display: flex; flex-direction: column; }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 0 16px;
+    padding-bottom: 32px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .t-rail { display: flex; flex-direction: column; align-items: center; padding-top: 6px; }
+  .t-dot {
+    width: 10px; height: 10px;
+    background: var(--accent); border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent); flex-shrink: 0;
+  }
+  .t-line {
+    flex: 1; width: 1px; margin-top: 6px;
+    background: linear-gradient(180deg, var(--accent) 0%, var(--accent2) 60%, transparent 100%);
+  }
+  .timeline-item:last-child .t-line { display: none; }
+
+  .job-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 10px; flex-wrap: wrap; margin-bottom: 2px;
+  }
+  .job-company {
+    font-family: 'Space Mono', monospace;
+    font-size: var(--fs-sm); font-weight: 700; color: var(--text);
+  }
+  .job-period {
+    font-family: 'Space Mono', monospace;
+    font-size: var(--fs-xs); color: var(--muted);
+    background: var(--surface2); padding: 3px 10px;
+    border-radius: 100px; border: 1px solid var(--border); white-space: nowrap;
+  }
+  .job-title { font-size: var(--fs-sm); color: var(--accent); margin-bottom: 10px; font-weight: 500; }
+  .job-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .job-bullets li {
+    font-size: var(--fs-sm); color: var(--sub);
+    padding-left: 18px; position: relative; line-height: 1.65;
+  }
+  .job-bullets li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--accent2); font-size: 11px; top: 2px;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  @media (min-width: 560px) { .edu-grid { grid-template-columns: 1fr 1fr; } }
+
+  .edu-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: clamp(16px,4vw,22px);
+    transition: border-color .3s, box-shadow .3s, transform .3s;
+  }
+  .edu-card:hover { border-color: var(--accent2); box-shadow: var(--glow2); transform: translateY(-3px); }
+  .edu-degree { font-family: 'Space Mono', monospace; font-size: var(--fs-sm); font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .edu-institution { font-size: var(--fs-sm); color: var(--accent); margin-bottom: 4px; }
+  .edu-period { font-size: var(--fs-xs); color: var(--muted); }
+
+  /* ── PROJECTS ── */
+  .projects-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  @media (min-width: 500px) {
+    .projects-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  }
+
+  .project-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: clamp(16px,4vw,22px);
+    transition: border-color .3s, box-shadow .3s, transform .3s;
+    position: relative; overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0); transform-origin: left; transition: transform .3s;
+  }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-card:hover { border-color: rgba(0,229,255,.3); transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.35); }
+  .project-icon { font-size: 22px; margin-bottom: 10px; }
+  .project-name { font-family: 'Space Mono', monospace; font-size: var(--fs-sm); font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .project-desc { font-size: var(--fs-sm); color: var(--muted); line-height: 1.65; }
+
+  /* ── SKILLS ── */
+  .skills-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 560px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
+
+  .skills-col-title {
+    font-family: 'Space Mono', monospace;
+    font-size: var(--fs-xs); letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent3); margin-bottom: 14px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    font-family: 'Space Mono', monospace; font-size: var(--fs-xs);
+    padding: 6px 13px; border-radius: 7px; border: 1px solid;
+    transition: transform .2s, box-shadow .2s; cursor: default;
+    min-height: 32px; display: inline-flex; align-items: center;
+  }
+  .skill-tag:hover { transform: translateY(-2px); }
+  .skill-tag.tech { color: var(--accent); border-color: rgba(0,229,255,.28); background: rgba(0,229,255,.05); }
+  .skill-tag.tech:hover { box-shadow: 0 4px 14px rgba(0,229,255,.18); }
+  .skill-tag.soft { color: var(--accent2); border-color: rgba(124,58,237,.28); background: rgba(124,58,237,.05); }
+  .skill-tag.soft:hover { box-shadow: 0 4px 14px rgba(124,58,237,.18); }
+
+  /* ── COMPLEMENTAR ── */
+  .comp-list { display: flex; flex-direction: column; gap: 10px; }
+  .comp-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: var(--fs-base); color: var(--sub);
+    padding: clamp(12px,3vw,16px) clamp(14px,4vw,20px);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; transition: border-color .2s; line-height: 1.6;
+  }
+  .comp-item:hover { border-color: rgba(245,158,11,.3); }
+  .comp-icon { color: var(--accent3); font-size: 15px; flex-shrink: 0; margin-top: 3px; }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: var(--sp-lg);
+    padding-top: clamp(20px,4vw,32px);
+    border-top: 1px solid var(--border);
+    display: flex; flex-wrap: wrap;
+    justify-content: space-between; gap: 8px;
+    opacity: .45;
+    font-family: 'Space Mono', monospace;
+    font-size: var(--fs-xs); color: var(--muted);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: .45; transform: scale(.75); }
+  }
+
+  @media print {
+    body::before, body::after { display: none; }
+    body { background: #fff; color: #111; }
+    .section { opacity: 1; transform: none; }
+    .contact-item { border-color: #ddd; background: #f8f8f8; color: #333; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      Disponível para oportunidades
+    </div>
+    <div class="tag-line">Desenvolvedor em formação · TI</div>
+    <h1>Gabriel <span class="accent">Tályson</span><br>
+        <span class="dim">de Oliveira Silva</span></h1>
+    <p class="subtitle">Estudante de Sistemas de Informação com foco em desenvolvimento de software, análise de dados e segurança da informação.</p>
+    <nav class="contacts" aria-label="Contatos">
+      <a class="contact-item" href="mailto:gabrielarapua2013@gmail.com">
+        <span class="contact-icon" aria-hidden="true">✉</span>
+        gabrielarapua2013@gmail.com
+      </a>
+      <a class="contact-item" href="tel:+5534988350778">
+        <span class="contact-icon" aria-hidden="true">☎</span>
+        (34) 98835-0778
+      </a>
+      <a class="contact-item" href="https://www.linkedin.com/in/gabrieltosilva/" target="_blank" rel="noopener">
+        <span class="contact-icon" aria-hidden="true">in</span>
+        linkedin.com/in/gabrieltosilva
+      </a>
+    </nav>
+  </header>
+
+  <section class="section" aria-label="Objetivo">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <span class="section-title">Objetivo</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="objetivo-box">
+      Atuar na área de Tecnologia da Informação, com foco em desenvolvimento de software, análise de dados ou segurança da informação, contribuindo com soluções eficientes, organização de processos e inovação tecnológica, enquanto desenvolvo minhas habilidades técnicas e profissionais.
+    </div>
+  </section>
+
+  <section class="section" aria-label="Experiência">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <span class="section-title">Experiência</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="t-rail"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-content">
+          <div class="job-header">
+            <span class="job-company">Tirolez</span>
+            <span class="job-period">2024 – Atual</span>
+          </div>
+          <div class="job-title">Operador de Produção II</div>
+          <ul class="job-bullets">
+            <li>Atuação em ambiente industrial com foco em qualidade e padronização de processos</li>
+            <li>Controle e verificação de qualidade dos produtos conforme normas estabelecidas</li>
+            <li>Organização de fluxos produtivos e apoio na otimização de processos</li>
+            <li>Desenvolvimento de disciplina, responsabilidade e trabalho em equipe em ambiente de alta demanda</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="t-rail"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-content">
+          <div class="job-header">
+            <span class="job-company">SPSP</span>
+            <span class="job-period">2022 – 2024</span>
+          </div>
+          <div class="job-title">Agente de Controle de Acesso</div>
+          <ul class="job-bullets">
+            <li>Monitoramento e controle de entrada e saída de pessoas e veículos</li>
+            <li>Utilização de sistemas de registro e controle de informações</li>
+            <li>Garantia do cumprimento de normas de segurança e procedimentos internos</li>
+            <li>Alta atenção a detalhes e atuação na resolução de situações operacionais</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Formação">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <span class="section-title">Formação</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">Bacharelado em Sistemas de Informação</div>
+        <div class="edu-institution">UNIPAM – Centro Universitário de Patos de Minas</div>
+        <div class="edu-period">Em andamento · Conclusão prevista: 2029</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Ensino Médio Completo</div>
+        <div class="edu-institution">E.E. Manoel Gonçalves Boaventura</div>
+        <div class="edu-period">Concluído em 2019</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Projetos">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <span class="section-title">Projetos</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-icon">⚙️</div>
+        <div class="project-name">Sistema de Cadastro em C++</div>
+        <div class="project-desc">Aplicação com menu interativo para cadastro de clientes e pedidos, com lógica estruturada e manipulação de dados.</div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">📊</div>
+        <div class="project-name">Dashboards no Excel</div>
+        <div class="project-desc">Criação de painéis de análise de dados com funções avançadas, tabelas dinâmicas e visualizações gráficas.</div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">🧩</div>
+        <div class="project-name">Sistemas Acadêmicos</div>
+        <div class="project-desc">Projetos com foco em lógica de programação, estruturação de sistemas e organização de dados.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Habilidades">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <span class="section-title">Habilidades</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="skills-grid">
+      <div>
+        <div class="skills-col-title">⌨ Técnicas</div>
+        <div class="skill-tags">
+          <span class="skill-tag tech">Excel Avançado</span>
+          <span class="skill-tag tech">C++</span>
+          <span class="skill-tag tech">Lógica de Programação</span>
+          <span class="skill-tag tech">Sistemas com Menus</span>
+          <span class="skill-tag tech">Engenharia de Software</span>
+          <span class="skill-tag tech">Redes de Computadores</span>
+          <span class="skill-tag tech">Segurança da Informação</span>
+          <span class="skill-tag tech">Pacote Office</span>
+          <span class="skill-tag tech">Tabelas Dinâmicas</span>
+        </div>
+      </div>
+      <div>
+        <div class="skills-col-title">◈ Comportamentais</div>
+        <div class="skill-tags">
+          <span class="skill-tag soft">Raciocínio Lógico</span>
+          <span class="skill-tag soft">Resolução de Problemas</span>
+          <span class="skill-tag soft">Organização</span>
+          <span class="skill-tag soft">Proatividade</span>
+          <span class="skill-tag soft">Trabalho em Equipe</span>
+          <span class="skill-tag soft">Comunicação Clara</span>
+          <span class="skill-tag soft">Adaptabilidade</span>
+          <span class="skill-tag soft">Aprendizado Contínuo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Informações Complementares">
+    <div class="section-header">
+      <span class="section-number">06</span>
+      <span class="section-title">Complementar</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="comp-list">
+      <div class="comp-item">
+        <span class="comp-icon" aria-hidden="true">◆</span>
+        Interesse contínuo em desenvolvimento e atualização na área de Tecnologia da Informação
+      </div>
+      <div class="comp-item">
+        <span class="comp-icon" aria-hidden="true">◆</span>
+        Facilidade para aprendizado de novas ferramentas e tecnologias
+      </div>
+      <div class="comp-item">
+        <span class="comp-icon" aria-hidden="true">◆</span>
+        Disponibilidade para treinamentos, capacitação profissional e novas oportunidades
+      </div>
+      <div class="comp-item">
+        <span class="comp-icon" aria-hidden="true">◆</span>
+        Referências disponíveis mediante solicitação
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Gabriel Tályson de Oliveira Silva</span>
+    <span>Patos de Minas, MG · Brasil</span>
+  </footer>
+
+</div>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+  // 3D tilt only on non-touch devices
+  if (window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width  - 0.5;
+        const y = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transform = `translateY(-4px) rotateX(${-y*5}deg) rotateY(${x*5}deg)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+</script>
+</body>
+</html>
